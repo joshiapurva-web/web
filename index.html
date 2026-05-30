@@ -224,7 +224,7 @@
 
       .hero-grid {
         display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(420px, 0.98fr);
+        grid-template-columns: minmax(0, 0.88fr) minmax(520px, 1.22fr);
         align-items: center;
         gap: clamp(46px, 6vw, 86px);
       }
@@ -315,11 +315,11 @@
       .hero-photo img {
         display: block;
         width: 100%;
-        aspect-ratio: 1.18 / 1;
+        aspect-ratio: 1774 / 887;
         height: auto;
-        max-height: min(705px, calc(100vh - 148px));
+        max-height: min(560px, calc(100vh - 148px));
         object-fit: cover;
-        object-position: center top;
+        object-position: center;
         border: 1px solid var(--line);
         border-radius: 28px;
         background: #ffffff;
@@ -689,7 +689,7 @@
         }
 
         .hero-photo img {
-          aspect-ratio: 1.12 / 1;
+          aspect-ratio: 1774 / 887;
           max-height: none;
         }
 
@@ -898,10 +898,10 @@
           </div>
           <div class="hero-photo">
             <img
-              src="assets/hero-clinic.jpg"
-              alt="Audiologist performing a hearing test on an elderly patient"
-              width="1280"
-              height="1280"
+              src="assets/hero-clinic-new.jpg"
+              alt="Audiologist supporting children, adults, and seniors with speech and hearing care"
+              width="1774"
+              height="887"
             />
             <div class="trust-card">
               <span class="icon-badge">8+</span>
@@ -1129,21 +1129,25 @@
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
 
-      document.getElementById("appointment-form").addEventListener("submit", function (event) {
-        event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        const text = encodeURIComponent(
-          "Hello, I'd like to book an appointment.\n\n" +
-            "Name: " +
-            (data.get("name") || "") +
-            "\nPhone: " +
-            (data.get("phone") || "") +
-            "\nMessage: " +
-            (data.get("message") || "")
-        );
-        window.open("https://wa.me/919561520848?text=" + text, "_blank", "noopener");
-        event.currentTarget.reset();
-      });
+      const appointmentForm = document.getElementById("appointment-form");
+
+      if (appointmentForm) {
+        appointmentForm.addEventListener("submit", function (event) {
+          event.preventDefault();
+          const data = new FormData(event.currentTarget);
+          const text = encodeURIComponent(
+            "Hello, I'd like to book an appointment.\n\n" +
+              "Name: " +
+              (data.get("name") || "") +
+              "\nPhone: " +
+              (data.get("phone") || "") +
+              "\nMessage: " +
+              (data.get("message") || "")
+          );
+          window.open("https://wa.me/919561520848?text=" + text, "_blank", "noopener");
+          event.currentTarget.reset();
+        });
+      }
     </script>
   </body>
 </html>
